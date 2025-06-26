@@ -2,6 +2,12 @@
 
 This repository is a personal, living document of mathematical proofs that I am studying, solving, and formalizing over time using LaTeX. The goal is to build a comprehensive and rigorous compendium of proofs — ranging from foundational results in number theory and real analysis to advanced topics in topology, algebra, logic, quantum theory, and computational complexity.
 
+<div align="center">
+  
+![](/img_paper.png)
+
+</div>
+
 ## 📌 Purpose
 
 The notebook serves as:
@@ -67,7 +73,7 @@ Make sure you have a LaTeX distribution installed, such as:
 * Include diagrams using TikZ
 * Add bibliography and references per topic
 * Publish an online version (via GitHub Pages or arXiv-style PDF)
-* Translate to Portuguese (optional)
+* Translate to English (I think better in portuguese)
 
 ## 🤝 Contributions
 
