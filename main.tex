@@ -142,13 +142,78 @@ Seja \( x \in C \). Então \( f(x) \in f(C) \), e assim \( x \in f^{-1}(f(C)) \)
 Portanto as duas inclusões mostram que \( f^{-1}(f(C)) = C \).
 \end{proof}
 
-\subsection{Prove que se $A \subseteq B$, então $\mathcal{P}(A) \subseteq \mathcal{P}(B)$ (Onde $\mathcal{P}(X)$ é o conjunto das partes de $X$}
+\subsection{Prove que se $A \subseteq B$, então $\mathcal{P}(A) \subseteq \mathcal{P}(B)$ (Onde $\mathcal{P}(X)$ é o conjunto das partes de $X$)}
+
+\begin{definition}
+    Seja $X$ um conjunto, o conjunto das partes $\mathcal{P}(X)$ é o conjunto de todos os subconjuntos de $X$. Todo conjunto das partes inlui o conjunto vazio $\emptyset$, e todos os subconjuntos de $X$, incluindo o próprio $X$.
+    
+\end{definition}
+
+\begin{lemma}
+    \label{Conjunto das partes}
+    Seja $X$ um conjunto e $\mathcal{P}(X)$ seu conjunto das partes, se $X$ possui $n$ elementos, então $\mathcal{P}(X)$ possuirá $2^n$ elementos. 
+\end{lemma}
+
+\begin{theorem}
+    Sejam dois conjuntos $A$ e $B$, dado $A \subseteq B$, temos que $\mathcal{P}(A) \subseteq \mathcal{P}(B)$ 
+\end{theorem}
+
+\begin{proof}
+    Sejam $A$ e $B$ dois conjuntos, sendo que $A \subseteq B$ e seus conjuntos das partes $\mathcal{P}(A), \mathcal{P}(B)$. Portanto temos que:
+
+    $$\forall x \in A \subseteq B$$
+
+    Dessa forma, (veja \ref{Conjunto das partes}) $\mathcal{P}(A) \subseteq \mathcal{P}(B)$. Ou seja,  todo subconjunto possível de $A$ também está em $B$. Assim podemos concluir que $\mathcal{P}(A) \subseteq \mathcal{P}(B)$.
+\end{proof}
 
 \subsection{Prove que se $n^2$ é par, então $n$ é par.}
 
-\subsection{Prove que não existem inteiros $x,y$ tais que $x^2 + y^2 = 1000001$}
+\begin{definition}
+    Um número inteiro $n \in \mathbb{Z}$ é par se existe $k \in \mathbb{Z}$ tal que $n = 2k$.
+\end{definition}
+
+\begin{theorem}
+    Seja $n \in \mathbb{Z}$. Se $n^2$ é par, então $n$ também é par.
+\end{theorem}
+
+\begin{proof}
+    Iremos provar pela contrapositiva se $n$ é ímpar, então $n^2$ é ímpar. Se $n$ é ímpar, então existe $k \in \mathbb{Z}$ tal que $n = 2k + 1$. Calculando o quadrado:
+
+    $$
+    n^2 = (2k + 1)^2 = 4k^2 + 4k + 1 = 2(2k^2 + 2k) + 1
+    $$
+
+    Portanto, $n^2$ é ímpar. Logo, a contrapositiva é verdadeira, e isso implica que se $n^2$ é par, então $n$ também é par.
+\end{proof}
 
 \subsection{Prove que o limite $\lim_{x \to 2} (3x + 1) = 7$ usando a definição $\epsilon-\delta$.}
+
+\begin{definition}
+    Seja $f: \mathbb{R} \to \mathbb{R}$ e $a, L \in \mathbb{R}$. Dizemos que
+\[
+\lim_{x \to a} f(x) = L
+\]
+se, para todo $\varepsilon > 0$, existe um $\delta > 0$ tal que, sempre que
+\[
+0 < |x - a| < \delta, \quad \text{então} \quad |f(x) - L| < \varepsilon.
+\]
+\end{definition}
+
+\begin{proof}
+    Seja o limite $\lim_{x \to 2} (3x + 1) = 7$, podemos analisar a veracidade do limite. Queremos mostrar que para todo $\varepsilon > 0$, existirá um $\delta > 0$ tal que:
+
+    $$0 < |x - 2| < \delta, \quad \text{e} \quad |f(x) - 7| < \varepsilon$$
+
+    Dessa forma temos:
+
+    $$\quad |3x+1 - 7| < \varepsilon = \quad |3x - 6| < \varepsilon = \quad 3|x - 2| < \varepsilon = \quad |x - 2| < \frac{\varepsilon}{3}$$
+
+    Assim podemos escolher $\delta = \frac{\varepsilon}{3}$. Portanto, com $0 < |x - 2| < \frac{\varepsilon}{3}$ temos o limite verificado, e a prova está completa.
+
+    
+
+    
+\end{proof}
 
 \subsection{Prove que uma função constante é contínua em todos os pontos. (Use definição de continuidade: $\forall \varepsilon \gt 0, \exists \delta \gt 0...$)}
 
