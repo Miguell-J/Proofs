@@ -1,0 +1,235 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{tikz-cd}
+
+\title{Caderno de Provas Matemáticas}
+
+
+\newtheorem{definition}{Definição}
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{corollary}{Corolário}[theorem]
+\newtheorem{lemma}[theorem]{Lema}
+
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\newpage
+
+\section{Fáceis-Médios-Dificeis}
+
+\subsection{Prove que a soma de dois pares também é par}
+
+\begin{definition}
+    \label{par}
+    Um número inteiro $x \in \mathbb{Z}$ é par se existe $k \in \mathbb{Z}$ tal que $x = 2k$.
+\end{definition}
+
+\begin{theorem}[Teorema da soma de pares]
+\label{theo:1}
+Dado 2 números pares $a, b \in \mathbb{Z}$, a soma de $a + b$ também é par.
+\end{theorem}
+
+\begin{proof}
+Sejam $a, b \in \mathbb{Z}$ tal que $a,b$ sejam pares. Então existem $k,m \in \mathbb{Z}$ tais que:
+
+$$ a = 2k, b = 2m$$
+
+Somando as duas expressões
+
+$$
+    a + b = 2k + 2m = 2(k + m)
+$$
+
+Como $k, m \in \mathbb{Z}$, temos que $a+b = 2n$, sendo $n = k + m \in \mathbb{Z}$. Logo $a+b$ é par.
+\end{proof}
+
+
+
+
+\subsection{Prove que a raiz quadrada de 2 é irracional.}
+
+\begin{definition} 
+    Um número $x \in \mathbb{Q}$ é racional se existe $x = \frac{a}{b}$, aonde $a,b \in \mathbb{Z}$, $b \neq 0$ e $gcd(a, b) = 1$
+\end{definition}
+
+\begin{theorem}
+    [Teorema da irracionalidade de $\sqrt{2}$]
+    \label{theo:2}
+    Dado $n = \sqrt{2}$, $n \notin \mathbb{Q}$
+\end{theorem}
+
+\begin{lemma}
+\label{lemma:Lema1}
+Se o quadrado de um número é par (veja \ref{par}), então o número também é par.
+\end{lemma} 
+
+\begin{proof}
+    Consideremos $\sqrt{2} \in \mathbb{Q}$, logo $\sqrt{2} = \frac{a}{b}$ com $a, b \in \mathbb{Z}$, $b\neq 0$ e $gcd(a, b) = 1$
+
+    Se elevarmos ao quadrado:
+
+    $$2 = \frac{a^2}{b^2}$$
+
+    O que nos leva a:
+
+    $$2b^2 = a^2$$
+
+    Como $a,b \in \mathbb{Z}$ e $a^2 = 2b^2 $, então $a$ é par (veja \ref{par}). Portanto podemos substituir $a$ como:
+
+    $2b^2 = 4k^2$
+
+    Se dividirmos ambos os lados por 2:
+
+    $$b^2 = 2k^2$$
+
+    O que nos leva a descobrir que $b$ também é par. E dado que dois números pares $a,b$ não tem $gcd(a,b) = 1$, isso nos leva a uma contradição, provando que $\sqrt{2} \notin \mathbb{Q}$
+
+\end{proof}
+
+\subsection{Seja $f: A \to B$. Prove que se $f$ é injetora, então $f^{-1}(f(C)) = C$ para todo $C \subseteq A$}
+
+\begin{definition}
+    Uma função \( f: A \to B \) é dita \textbf{injetora} se:
+    \[
+        \forall x_1, x_2 \in A, \quad f(x_1) = f(x_2) \Rightarrow x_1 = x_2.
+    \]
+    Ou seja, diferentes elementos no domínio têm imagens diferentes.
+\end{definition}
+
+\begin{definition}
+    Dada uma função \( f: A \to B \), definimos a função inversa à esquerda \( f^{-1}: \operatorname{Im}(f) \to A \), tal que:
+    \[
+        \forall x \in A, \quad f^{-1}(f(x)) = x.
+    \]
+    Essa inversa é bem definida se \( f \) for injetora.
+\end{definition}
+
+\begin{lemma} [Reconstrução de valor via função injetora inversa]
+    \label{func inj}
+    Seja \( f: A \to B \) uma função injetora. Então, para todo \( x \in A \),
+    \[
+    f^{-1}(f(x)) = x.
+    \]
+\end{lemma}
+
+\begin{theorem}
+Seja \( f: A \to B \) uma função injetora. Então, para todo subconjunto \( C \subseteq A \),
+\[
+    f^{-1}(f(C)) = C.
+\]
+\end{theorem}
+
+\begin{proof}
+Seja \( C \subseteq A \). Vamos provar as duas inclusões:
+
+\textbf{1. \( f^{-1}(f(C)) \subseteq C \):}
+
+Seja \( x \in f^{-1}(f(C)) \). Então \( f(x) \in f(C) \), ou seja, existe \( c \in C \) tal que \( f(x) = f(c) \).
+
+Como \( f \) é injetora, temos \( x = c \), então \( x \in C \). Logo, \( f^{-1}(f(C)) \subseteq C \).
+
+\textbf{2. \( C \subseteq f^{-1}(f(C)) \):}
+
+Seja \( x \in C \). Então \( f(x) \in f(C) \), e assim \( x \in f^{-1}(f(C)) \).
+
+Portanto as duas inclusões mostram que \( f^{-1}(f(C)) = C \).
+\end{proof}
+
+\subsection{Prove que se $A \subseteq B$, então $\mathcal{P}(A) \subseteq \mathcal{P}(B)$ (Onde $\mathcal{P}(X)$ é o conjunto das partes de $X$}
+
+\subsection{Prove que se $n^2$ é par, então $n$ é par.}
+
+\subsection{Prove que não existem inteiros $x,y$ tais que $x^2 + y^2 = 1000001$}
+
+\subsection{Prove que o limite $\lim_{x \to 2} (3x + 1) = 7$ usando a definição $\epsilon-\delta$.}
+
+\subsection{Prove que uma função constante é contínua em todos os pontos. (Use definição de continuidade: $\forall \varepsilon \gt 0, \exists \delta \gt 0...$)}
+
+\subsection{Prove que existe infinitos números primos.}
+
+\subsection{Prove que $\sqrt{3} \notin \mathbb{Q}$ mas $\sqrt{9} \in \mathbb{Q}$}
+
+\subsection{Prove que $\mathbb{Q}$ é denso em $\mathbb{R}$ (Para todo $x, y \in \mathbb{R}$ com $x \lt y$ existe $q \in \mathbb{Q}$ tal que $x \lt q \lt y$)}
+
+\subsection{Mostre que a função $f(x) = x^2$ não é uniformemente contínua em $\mathbb{R}$}
+
+\subsection{Prove que a união de duas aberturas em $\mathbb{R}$ é um conjunto aberto.}
+
+\subsection{Prove que todo subconjunto finito de $\mathbb{R}$ é fechado.}
+
+\subsection{Prove que não existem inteiros $x, y \in \mathbb{Z}$ tais que $x^3 + y^3 = 2024$}
+
+\subsection{Seja $G$ um grupo com a operação $*$ e $a \in G$ tal que $a^2 = e$ (elemento neutro). Prove que $a = a^{-1}$}
+
+\subsection{prove que se $f: \mathbb{R} \to \mathbb{R}$ é derivavel em $a \in \mathbb{R}$ então ela é contínua em $a$}
+
+\subsection{prove que a sequência $a_n = \frac{1}{n}$ converge e que seu limite é 0.}
+
+\subsection{Prove que toda sequência monótona crescente e limitada superiormente é convergente.}
+
+\subsection{Determine se a série $\sum_{n=1}^{\infty} \frac{1}{n^2}$ converge}
+
+\subsection{Prove que se $\sum a_n$ converge absolutamente, então também converge.}
+
+\subsection{Prove que um conjunto de vetores ortogonais não nulos em $\mathbb{R}^n$ é linearmente independente. (Use definição de ortogonalidade e combinação linear)}
+
+\subsection{Seja $T: \mathbb{R}^n \to \mathbb{R}^n$ uma transformação linear tal que $T^2 = T$. Prove que $\operatorname{Im}(T) \cap \ker(T) = \{0\}$}
+
+\subsection{Mostre que o conjunto $\mathbb{Q} \subset \mathbb{R}$ não é fechado.}
+
+\subsection{Mostre que o intervalo $(0,1) \subset \mathbb{R}$ não é compacto.}
+
+\subsection{Prove que todo operador unitário $U$ em um espaço de Hilbert de dimensão finita preserva normas, ou seja, $\|Ux\| = \|x\|$ para todo $x$.}
+
+\subsection{Mostre que o conjunto dos estados quânticos (vetores normalizados em $\mathbb{C}^n$) forma uma variedade topológica esférica complexa. (dica, $S^{2n-1} \subset \mathbb{C}^n$ com norma 1)}
+
+\subsection{Mostre que a classe $P$ é fechada sob composição de funções.}
+
+\subsection{Mostre que se $\mathbf{NP} = \mathbf{coNP}$ então o complemento de qualquer problema NP-completo também é NP-completo.}
+
+\subsection{Prove que todo grupo abeliano finito é isomorfo a um produto de grupos cíclicos de ordem potência de primos.}
+
+\subsection{Mostre que o primeiro grupo de homologia $H_1(S^1) \cong \mathbb{Z}$}
+
+\subsection{Prove que a função grau de uma aplicação contínua $f: S^1 \to S^1$ é um invariante topológico sob homotopia. (Ou seja, se $f \sim g$ então $\deg(f) = \deg(g)$)}
+
+\subsection{Mostre que a functorialidade da homologia garante que mapas homotópicos induzem o mesmo homomorfismo em homologia.}
+
+\subsection{Mostre que uma superfície toroidal tem grupo de homologia $H_1(T^2) \cong \mathbb{Z} \oplus \mathbb{Z}$}
+
+\subsection{Mostre que qualquer operador linear hermitiano em $\mathbb{C}^n$ possui uma base ortonormal de autovetores e autovalores reais.}
+
+\section{Insano}
+
+\subsection{Prove ou discuta criticamente a equivalência entre a hipótese de Riemann e a estimativa de erro na contagem de primos: $\pi(x) = \text{Li}(x) + O\left(x^{1/2} \log x\right)$ (Assuma a validade ou estude implicações formais. Construa uma prova da implicação RH ⟹ estimativa.)}
+
+\subsection{Prove que o grupo fundamental do toro $T^2$ é $\mathbb{Z} \oplus \mathbb{Z}$  e mostre como ele classifica os loops essenciais da superfície. (Generalize a estrutura para superfícies orientáveis genus $g$)}
+
+\subsection{Mostre que a categoria dos espaços de Hilbert finitamente dimensionais com operadores unitários é uma categoria monoidal fechada, e discuta implicações para circuitos quânticos.
+(Use a linguagem de funtores, objetos internos e tensores)}
+
+\subsection{Estude o problema de Hodge em $\mathbb{C}P^2$. Verifique, com provas formais, que todo ciclo harmônico em $H^{2}( \mathbb{C}P^2 )$ é classe de um subvariedade algébrica.
+(Esse é um caso conhecido da conjectura de Hodge)}
+
+\subsection{Mostre que toda variedade diferenciável compacta orientável de dimensão 3 admite uma estrutura de fibrado de Seifert. (Esse é um caso particular da geometrização de Thurston que implica a Poincaré)}
+
+\subsection{Assuma que $\mathbf{P} = \mathbf{NP}$, e demonstre que então o problema de determinar se um grafo tem um ciclo Hamiltoniano pode ser resolvido em tempo polinomial. (Formalize usando reduções e classes de complexidade)}
+
+\subsection{Prove que o espectro de um operador compacto autoadjunto em um espaço de Hilbert é um conjunto enumerável com possível ponto de acumulação apenas em 0. (Fundamental para física quântica e teoria espectral)}
+
+\subsection{Mostre que os grupos de homotopia estáveis das esferas são finitos para $n \gt 0$  exceto para múltiplos especiais. (Use ideias da teoria de espectros e suspensões estáveis)}
+
+\subsection{Mostre que todo topos booleano com um objeto natural e um subobjeto de igualdades satisfaz os axiomas de Peano internamente. (Traduza isso em lógica categórica e modelagem interna)}
+
+\subsection{Formalize como a homologia persistente pode ser usada para extrair topologia de espaço-tempo em abordagens tipo causal set theory. (Trabalho de fronteira entre física matemática, topologia e IA)}
+
+
+
+\end{document}
